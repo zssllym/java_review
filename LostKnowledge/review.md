@@ -1,0 +1,153 @@
+# 第 2 章 基本程序设计
+
+## 输入
+
+```java
+import java.util.Scanner;
+
+public class InputAndOutput {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please input: ");
+        String content = input.nextLine();
+        System.out.println("This is what you input:");
+        System.out.println(content);
+        input.close();
+    }
+}
+```
+
+导入java.util.Scanner，使用 `Scanner input = new Scanner(System.in);`通过nextTYPE方法获取输入。
+
+## 标识符
+
+- 由$、字母、_、数字组成
+- 不能以数字开头
+- 可以为任意长度
+- 区分大小写
+- 尽量不使用$命名
+
+## 赋值
+
+可以采用链式赋值（C也支持）
+
+```java
+int x, y, z;
+x = y = z = 1;
+```
+
+## 获取时间
+
+```
+System.currentTimeMillis()
+```
+
+返回一个long类型数，表示GMT时间戳毫秒数
+
+```
+System.nanoTime()
+```
+
+返回值为纳秒单位
+
+## 数值转换
+
+与C一致
+
+```java
+a = (int) b;
+```
+
+# 第 3 章 选择
+
+## 产生随机数
+
+```
+Math.random()
+```
+
+获得一个0.0~1.0之间的随机double值
+
+## switch表达式
+
+支持类型：char、byte、short、int、String。
+
+case必须为常量表达式
+
+
+# 第 4 章 数字函数、字符和字符串
+
+## 常用数学函数（Math类）
+
+### 三角函数
+
+| 方法        | 描述       |
+| ----------- | ---------- |
+| sin()       | 使用弧度制 |
+| cos()       |            |
+| tan()       |            |
+| toRadians() | 以度转弧度 |
+| toDegrees() | 弧度转以度 |
+| asin()      | 反三角函数 |
+| acos()      |            |
+| atan()      |            |
+
+### 指对函数
+
+| 方法    | 描述     |
+| ------- | -------- |
+| exp()   | e的x次方 |
+| log()   | ln()     |
+| log10() | lg()     |
+| pow()   | a的b次方 |
+| sqrt()  | 平方根   |
+
+### 舍入方法
+
+| 方法    | 描述       |
+| ------- | ---------- |
+| ceil()  | 向上取整   |
+| floor() | 向下取整   |
+| rint()  | 向偶数舍入 |
+| round() | 四舍五入   |
+
+### 最值与绝对值
+
+| 方法  | 描述   |
+| ----- | ------ |
+| max() | 类泛型 |
+| min() |        |
+| abs() |        |
+
+### 随机数
+
+| 方法     | 描述                  |
+| -------- | --------------------- |
+| random() | 返回0.0~1.0随机double |
+
+## 字符及字符操作
+
+Java使用Unicode
+
+### 转义表
+
+| 转义序列 | 名称   | 十进制 |
+| -------- | ------ | ------ |
+| \b       | 退格   | 8      |
+| \t       | 制表符 | 9      |
+| \n       | 换行符 | 10     |
+| \f       | 换页符 | 12     |
+| \r       | 回车符 | 13     |
+| \\\      | 反斜杠 | 92     |
+| \\"      | 双引号 | 34     |
+
+### String方法
+
+| 方法          | 描述                               |
+| ------------- | ---------------------------------- |
+| length()      | 返回字符数                         |
+| charAt(index) | 返回指定位置字符                   |
+| oncat(s1)     | 将该字符与s1连接，返回一个新字符串 |
+| toUpperCase() | 全大写                             |
+| toLowerCase() | 全小写                             |
+| trim()        | 返回删掉两边空白字符的新字符串     |
