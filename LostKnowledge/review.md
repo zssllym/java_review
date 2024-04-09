@@ -140,6 +140,18 @@ Java使用Unicode
 | \\\      | 反斜杠 | 92     |
 | \\"      | 双引号 | 34     |
 
+### Character类中的方法
+
+| 方法                | 描述 |
+| ------------------- | ---- |
+| isDigit(ch)         |      |
+| isLetter(ch)        |      |
+| isLetterOrDigit(ch) |      |
+| isLowwerCase(ch)    |      |
+| isUpperCase(ch)     |      |
+| toLowerCase(ch)     |      |
+| toUpperCase(ch)     |      |
+
 ### String方法
 
 | 方法          | 描述                               |
@@ -150,3 +162,43 @@ Java使用Unicode
 | toUpperCase() | 全大写                             |
 | toLowerCase() | 全小写                             |
 | trim()        | 返回删掉两边空白字符的新字符串     |
+
+### 字符串比较
+
+| 方法                    | 描述                          |
+| ----------------------- | ----------------------------- |
+| equals(s1)              |                               |
+| equalsIgnoreCase(s1)    |                               |
+| compareTo(s1)           | 返回大于0、等于0或小于0的整数 |
+| compareToIgnoreCase(s1) |                               |
+| startsWith(prefix)      |                               |
+| endWith(suffix)         |                               |
+| contains(s1)            | 判断s1是否为子字符串          |
+
+### 获得自字符串
+
+| 方法                            | 描述                     |
+| ------------------------------- | ------------------------ |
+| substring(beginIndex)           | 从begin开始到结束        |
+| substring(beginIndex, endIndex) | 到endIndex前一个字符结束 |
+
+### 查找字符或子串
+
+| 方法                       | 描述                               |
+| -------------------------- | ---------------------------------- |
+| indexOf(ch)                | 返回低一个ch的下标（没有返回-1）   |
+| indexOf(ch, fromIndex)     | 在fromIndex之后找（包括fromIndex） |
+| indexOf(s)                 | 找字符串                           |
+| indexOf(s, fromIndex)      |                                    |
+| lastIndexOf(ch)            | 找最后一个                         |
+| lastIndexOf(ch, fromIndex) | 在fromIndex之前最后一个            |
+| lastIndexOf(s)             | 找字符串                           |
+| lastIndexOf(s, fromIndex)  |                                    |
+
+### 字符与数值间转换
+
+| 方法                             | 描述        |
+| -------------------------------- | ----------- |
+| Integer.parseInt(intString)      | str->int    |
+| Double.parseDouble(doubleString) | str->double |
+| others + ""                      | others->str |
