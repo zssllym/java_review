@@ -58,6 +58,7 @@ System.nanoTime()
 a = (int) b;
 ```
 
+
 # 第 3 章 选择
 
 ## 产生随机数
@@ -73,6 +74,7 @@ Math.random()
 支持类型：char、byte、short、int、String。
 
 case必须为常量表达式
+
 
 # 第 4 章 数字函数、字符和字符串
 
@@ -202,3 +204,37 @@ Java使用Unicode
 | Integer.parseInt(intString)      | str->int    |
 | Double.parseDouble(doubleString) | str->double |
 | others + ""                      | others->str |
+
+
+
+# 第 7 章 一维数组
+
+推荐声明风格：
+
+```java
+elementTpye[] arrayRefVar;
+```
+
+数组元素会被赋予默认值（0、'\u0000'、false）。
+
+## 复制数组
+
+```java
+System.arraycopy(sourceArray, srcPos, targetArray, tarPos, length);
+```
+
+参数srcPos与tarPos表示复制起始位置，length表示复制长度。
+
+还有：
+
+- for循环复制
+- Arrays.copyOf()、Arrays.copyOfRange()
+- .clone()方法
+
+## 匿名数组
+
+```java
+new elementType[]{value0, value1, ..., valuek};
+```
+
+# 第 9 章 对象和类
