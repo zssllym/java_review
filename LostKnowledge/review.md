@@ -58,7 +58,6 @@ System.nanoTime()
 a = (int) b;
 ```
 
-
 # 第 3 章 选择
 
 ## 产生随机数
@@ -74,7 +73,6 @@ Math.random()
 支持类型：char、byte、short、int、String。
 
 case必须为常量表达式
-
 
 # 第 4 章 数字函数、字符和字符串
 
@@ -205,8 +203,6 @@ Java使用Unicode
 | Double.parseDouble(doubleString) | str->double |
 | others + ""                      | others->str |
 
-
-
 # 第 7 章 一维数组
 
 推荐声明风格：
@@ -238,3 +234,57 @@ new elementType[]{value0, value1, ..., valuek};
 ```
 
 # 第 9 章 对象和类
+
+## UML图
+
+符号+表示public修饰符
+
+## 初始化
+
+类数据域
+
+引用型：null
+
+0、false、'\u0000'。
+
+方法中的局部变量没有默认初始值。
+
+## Java 库中的类
+
+### Date类
+
+```java
+Date() // 根据当前时间创建
+Date(elapseTime: long) // 根据格林威治时间（单位毫秒）创建
+
+toString(): String // 返回一个表示日期时间的字符串
+getTime(): long // 返回格林威治时间（单位毫秒）
+setTime(elapseTime: long): void // 设置一个新的流逝时间
+```
+
+### Random类
+
+```java
+Random() // 使用当前时间为种子
+Random(seed: long) // 制定种子
+
+nextInt(): int // 随机int
+nestInt(n: int): int // 0～n（不包括n）之间随机值
+nextLong(): long // 随机long
+nextDouble(): double //  0.0～1.0（不包括1.0）之间随机double
+nextFloat(): float // 0.0～1.0（不包括1.0）之间随机float
+nextBoolean(): boolean // 随机boolean
+```
+
+### Point3D类
+
+```java
+Point2D(x: double, y: double) // 给定x和y坐标
+
+distance(x: double, y: double): double // 返回与(x, y)距离
+distance(p: Point2D) // 返回与p距离
+getX(): double // x坐标
+getY(): double // y坐标
+midpoint(p: Point2D): Point2D // 与p中点
+toString(): String // 转为字符串
+```
