@@ -410,3 +410,193 @@ trimToSize(): void // 缩减capacity到实际大小
 子类：继承类、派生类
 
 父、子类的类型：父类型、子类型
+
+## 对象转换
+
+子类 -> 父类：向上转换
+
+父类 -> 子类：向下转换（必须显式使用转换标记，可以使用instanceof判断）
+
+## Object类方法
+
+- toString()
+- equals()
+
+重写时注意必要的向下转换（参数为Object）
+
+## ArrayList 类
+
+位置：java.util
+
+用于储存一个对象的列表。
+
+```java
+ArrayList() // 创建空列表
+
+add(e: E): void // 末尾增加e
+add(index: int, e: E): void // 指定下标插入
+clear(): void // 清空列表
+contains(o: Object): boolean // 是否包含o
+get(index: int): E // 返回指定下标元素
+indexOf(o: Objext): int // 返回第一个匹配元素的下标
+isEmpty(): boolean // 判断是否为空
+lastIndeOf(o: Object): boolean
+remove(o: Object): boolean // 去除最后一个元素，被去除返回true
+size(): int // 元素数
+remove(index: int): E // 去除下标位置元素，成功返回被去除的元素
+set(index:int, e:E): E // 设置下标位置元素
+```
+
+# 第 12 章 异常处理和文本I/O
+
+## 异常
+
+### 异常类型
+
+- 系统错误（System Error）
+  由Java虚拟机抛出，用Error表示。（内部系统错误）
+  - `LinkageError`	一个类依赖于另一个类，但是在编译前者后，后者进行了修改，出现不兼容
+  - `VirtualMachineError`	Java虚拟机崩溃（或资源耗尽）
+- 异常（Exception）
+  由程序和外部环境引起的错误，能被程序捕获和处理。
+  - `ClassNotFoundException`	试图使用不存在的类
+  - `IOException`	输入输出操作错误
+- 运行时异常（Runtime Exception）
+  程序设计错误，通常表明编程错误。
+  - `ArithmeticException`	整数除以0
+  - `NullPointerException`	试图通过null引用访问对象
+  - `IndexOutOfBoundsException`	数组越界
+  - `IllegalArgumentException`	参数不合法
+
+分类：
+
+- 免检异常
+  RuntimeException、Error以及他们的子类。
+- 必检异常
+  除了免检异常，其他所有异常。（编译器会在编译时强制检查）
+
+### 声明异常
+
+对抛出异常的方法进行声明
+
+Java不要求在方法中显式声明免检异常。其它异常须显式声明。
+
+```java
+public void myMethod() throws IOException {
+    // ...
+    throws new IOException();
+}
+```
+
+抛出多个异常，可使用 `throws Exception1, Excaptions2, ..., ExceptionN`
+
+### 从异常中获取信息
+
+对于Throwable
+
+```java
+getMessage(): String // 返回异常对象信息
+toString(): String // 返回字符串：异常类全名+": "+getMessage()
+printStackTrace(): void // 打印Throwable对象及其调用栈的跟踪信息
+getStackTrace(): StackTraceElement[] // 返回一个栈跟踪元素的数组，表示相关栈跟踪信息
+```
+
+### 重新抛出异常
+
+```java
+try{
+  // statements;
+} catch (TheException ex) {
+  // perform operations before exits;
+  throw ex;
+}
+```
+
+将异常重新抛出给调用者，以便调用者再处理。
+
+### 创建自定义异常类
+
+尽量使用自带异常类
+
+继承`Exception`类创建自定义异常类。
+
+## 文本I/O
+
+### File 类
+
+```java
+File(pathname: String) // 为一个指定的路径名创建一个File对象（目录或文件）
+File(parent: String, child: String) // 在parent下创建一个子路径的File对象
+File(parent: File, child: String) // parent为File对象
+
+exists(): boolean // 文件/目录是否存在
+canRead(): boolean // 文件是否存在且可读
+canWrite(): boolean // 文件是否存在且可写
+isDirectory(): boolean // 是否为目录
+isFile(): boolean
+isAbsolute(): boolean // 是否为绝对路径
+isHidden(): boolean // 是否是隐藏的
+
+getAbsolutePath(): String // 返回文件或目录的绝对路径名
+getCanonicalPath(): String // 同getAbsolutePath，除去冗余的名字（".."、"."）、解析符号链接，盘符转为标准大写。
+getName(): String // 返回文件或目录名，如new File("c:\\book\\test.dat").getName() -> "test.dat"
+getPath(): String // 返回完整文件或目录名
+getParent(): String // 返回当前文件或目录的完整父目录
+
+lastModified(): long // 最后修改时间
+length(): long // 返回文件大小，不存在或为目录返回0
+listFile(): File[] // 返回目录下的文件
+delete(): boolean // 删除File对象所代表的文件或目录，成功返回true
+renameTo(dest: File): boolean // 重命名为dest中指定的名字，成功返回true
+mkdir(): boolean // 创建file所指的文件夹，成功返回true
+mkdirs(): boolean // 同mkdir()，父目录不存在时创建父目录
+```
+
+### 文件输入和输出
+
+#### PrintWriter
+
+位置：java.io
+
+- 初始化：使用目录名或File对象
+- 方法：
+  - `print(value)`	打印String、char、char[]、int、long、float、double、boolean
+  - `close()`	关闭文件
+- 异常：构造方法可能会抛出IO异常，Java强制要求处理
+
+#### 自动关闭资源
+
+```java
+try(/*声明和创建资源*/) {
+    // 使用资源来处理文件
+}
+```
+
+注意：
+
+- 必须在 `try(...)`子句中统一声明资源引用变量和创建资源
+- `try(...)`子句最后一句分号可省略
+- `try(...)`子句中可以创建多个资源
+- `try(...)`子句仅含创建资源的语句
+
+#### Scanner
+
+位置：java.util
+
+- 初始化：File对象或字符串（作为字符串流）
+- 方法：
+  - `hasNext()`	是否有更多数据可读
+  - `next()`	读取下一个标记作为字符串返回
+  - `next[类型]()`	读取下一个标记作为[类型]返回，支持byte、short、int、long、float、double
+  - `nextLine()`	读取下一行，以换行结束
+  - `useDelimiter(pattern: String): Scanner`	设置Scanner的分隔符模式，并返回Scanner
+- 异常：以File为对象声明可能会抛出IO异常
+- 分隔符：默认为" "，可更改
+
+注意：Windows行分隔符是"\r\n"，UNIX平台则为"\n"
+
+#### 从Web上读取数据
+
+使用java.net.URL类的构造方法创建URL对象
+
+// 书上这里写的方法太老了，在Java20中被弃用了。
