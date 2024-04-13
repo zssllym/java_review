@@ -76,7 +76,7 @@ case必须为常量表达式
 
 # 第 4 章 数字函数、字符和字符串
 
-## 常用数学函数（Math类）
+## 常用数学函数（Math 类）
 
 ### 三角函数
 
@@ -203,6 +203,10 @@ Java使用Unicode
 | Double.parseDouble(doubleString) | str->double |
 | others + ""                      | others->str |
 
+### 更多
+
+第 10 章 面向对象：String 类
+
 # 第 7 章 一维数组
 
 推荐声明风格：
@@ -251,7 +255,7 @@ new elementType[]{value0, value1, ..., valuek};
 
 ## Java 库中的类
 
-### Date类
+### Date 类
 
 ```java
 Date() // 根据当前时间创建
@@ -262,7 +266,7 @@ getTime(): long // 返回格林威治时间（单位毫秒）
 setTime(elapseTime: long): void // 设置一个新的流逝时间
 ```
 
-### Random类
+### Random 类
 
 ```java
 Random() // 使用当前时间为种子
@@ -276,7 +280,7 @@ nextFloat(): float // 0.0～1.0（不包括1.0）之间随机float
 nextBoolean(): boolean // 随机boolean
 ```
 
-### Point3D类
+### Point3D 类
 
 ```java
 Point2D(x: double, y: double) // 给定x和y坐标
@@ -288,3 +292,121 @@ getY(): double // y坐标
 midpoint(p: Point2D): Point2D // 与p中点
 toString(): String // 转为字符串
 ```
+
+# 第 10 章 面向对象
+
+## 包装类型
+
+- 构造方法：`Integer(value)`已过时，`Integer.valueOf(value)`通过字符串或数值进行构造
+- 导出：`[类型]Value()`方法，如 `a.intValue()`。
+- 类型：Byte、Short、Integer、Long与Float、Double。
+- 表示范围：`MAX_VALUE`与 `MIN_VALUE`方法（max表示最大值，min表示最小值或最小正值（对于浮点数））
+- 比较方法：`compareTo()`：大于、等于、小于，返回1、0、-1。
+- 自动转换：根据上下文环境，自动“装箱”、“拆箱”，进行包装类型和基本类型之间的转换。
+
+## BigInteger与BigDecimal
+
+任意精度整数、实数运算。
+
+- 构造方法：`BigInteger(str)`，BigDecimal可以用double构造，但会因精度问题造成奇怪现象：0.1 -> 0.10000...00001231231
+- 运算：add、substract、multiple、divide、remainder
+
+BigDecimal可以达到任意精度，无法终止时，divide方法报 `ArithmeticException`，需使用 `divide(BigDecimal d, int scale, int roundingMod)`方法指定精度和舍入方法。
+
+```java
+        BigDecimal bigDecimal1 = new BigDecimal("3.0");
+        BigDecimal bigDecimal2 = new BigDecimal(9);
+        BigDecimal bigDecimal3 = bigDecimal1.divide(bigDecimal2, 100, RoundingMode.HALF_EVEN); 
+        System.out.println(bigDecimal3);
+```
+
+## String 类
+
+String是不可变的。字符串一旦创建，其内容就不可改变。
+
+### 替换和拆分字符串
+
+```java
+replace(oldChar: char, newChar: char): String // 替换匹配的字符
+replaceFirst(oldString: String, newString: String): String // 替换第一个匹配的字符串
+replaceAll(oldString: String, newString: String): String // 替换所有匹配的字符串
+split(delimiter: String): String[] // 返回一个字符串数组（分割字符串）
+```
+
+### 使用模式匹配、替换和拆分
+
+正则表达式匹配：`str.matches("正则表达式")`，返回布尔值。
+
+正则替换： `s1 = s2.replaceAll("正则表达式", "替换内容")`。
+
+拆分：`str.split("正则表达式")`，通过正则表达式匹配分隔符。
+
+### 字符串、数组转换
+
+字符串 -> 数组：
+
+- `str.toCharArray()`转换成数组
+- `str.getChars(int srcBegin, int scEnd, char[]dst, int dstBegin)`将下表从srcBegin到srcEnd-1的字串复制到dst从下表dstBegin开始的位置。
+
+数组 -> 字符串：
+
+- 构造方法： `new String(char[])`
+- valueOf方法： `String.valueOf(char[])`
+
+### 常用静态方法
+
+`valueOf(value)`方法：将字符、数值转换为字符串
+
+format方法：格式化字符串，如 `String.format("%7.2f %6d %-4s", 45.556, 14, "AB")`
+
+## StringBuilder 与 StringBuffer
+
+可变的String
+
+StringBuffer是多线程安全的（修改缓冲区的方法是同步的），但StringBuilder在单线程环境性能更高。
+
+StringBuilder方法：
+
+```java
+StringBuiler() // 构建，容量为16
+StringBuiler(capacity: int) // 指定容量
+StringBuiler(s: String) // 从指定字符串构建
+
+append(data: char[]): StringBuilder // 追加char数组
+append(data: char[], offset: int, len: int): StringBuilder // 追加data的子数组
+append(v: aPrimitiveType): StringBuilder // 追加基本类型
+append(s: String): StringBuilder // 追加字符串
+
+delete(startIndex: int, endIndex: int): StringBuilder // 删除从startIndex到endIndex-1的字符
+deleteCharAt(index: int): StringBuilder // 删除此下标字符
+
+insert(index: int, data: char[], offset: int, len:int): StringBuilder // 插入data的子数组
+insert(offset: int, data: char[]): StringBuilder // 在offset位置插入data
+insert(offset: int, b: aPrimitiveType): StringBuilder // 插入基本类型
+insert(offset: int, s: String): StringBuilder // 插入字符串
+
+replace(startIndex: int, endIndex: int, s: String): StringBuilder // 将startIndex到endIndex-1位置的字符替换为给定字符串
+reverse(): StringBuilder // 倒置
+setCharAt(index: int, ch: char): void // 指定下标替换为新字符
+```
+
+返回值StringBuilder是对当前对象的引用
+
+```java
+toString(): String // 返回String对象
+capacity(): int // 容量
+chatAt(): char
+length(): int // 返回字符数
+setLength(newLength: int): void // 截断或填充空字符（'\u0000'）
+subString(startIndex: int): String // 从startIndex开始的子字符串
+subStrign(startIndex: int, endIndex: int): String
+trimToSize(): void // 缩减capacity到实际大小
+```
+
+# 第 11 章 继承和多态
+
+父类：超类、基类
+
+子类：继承类、派生类
+
+父、子类的类型：父类型、子类型
