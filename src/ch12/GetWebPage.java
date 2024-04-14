@@ -3,7 +3,6 @@ package ch12;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Scanner;
 
@@ -16,20 +15,27 @@ public class GetWebPage {
         Scanner input = new Scanner(System.in);
         String URLString = input.nextLine();
         input.close();
+        Scanner webInput = null;
         try {
-            URL url = new URL(URLString);
-            Scanner webInput = new Scanner(url.openStream());
+            // URL url = new URL(URLString);
+            URL url = URI.create(URLString).toURL();
+            webInput = new Scanner(url.openStream());
             while (input.hasNext()) {
                 String line = input.nextLine();
                 System.out.println(line);
             }
-            webInput.close();
         } catch (MalformedURLException ex) {
             System.out.println("Invalid URL");
-        // } catch (URISyntaxException ex) {
-        //     System.out.println("Syntax Error");
         } catch (IOException ex) {
             System.out.println("IO Error!");
+        } catch (Exception ex) {
+            System.out.println("Exception");
+            ex.printStackTrace();
+        } finally {
+            if (webInput != null) {
+                webInput.close();
+            }
+            System.out.println("End of program");
         }
     }
 }

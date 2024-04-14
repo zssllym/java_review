@@ -80,49 +80,49 @@ case必须为常量表达式
 
 ### 三角函数
 
-| 方法        | 描述       |
-| ----------- | ---------- |
-| sin()       | 使用弧度制 |
-| cos()       |            |
-| tan()       |            |
-| toRadians() | 以度转弧度 |
-| toDegrees() | 弧度转以度 |
-| asin()      | 反三角函数 |
-| acos()      |            |
-| atan()      |            |
+| 方法            | 描述       |
+| --------------- | ---------- |
+| `sin()`       | 使用弧度制 |
+| `cos()`       |            |
+| `tan()`       |            |
+| `toRadians()` | 以度转弧度 |
+| `toDegrees()` | 弧度转以度 |
+| `asin()`      | 反三角函数 |
+| `acos()`      |            |
+| `atan()`      |            |
 
 ### 指对函数
 
-| 方法    | 描述     |
-| ------- | -------- |
-| exp()   | e的x次方 |
-| log()   | ln()     |
-| log10() | lg()     |
-| pow()   | a的b次方 |
-| sqrt()  | 平方根   |
+| 方法        | 描述     |
+| ----------- | -------- |
+| `exp()`   | e的x次方 |
+| `log()`   | ln()     |
+| `log10()` | lg()     |
+| `pow()`   | a的b次方 |
+| `sqrt()`  | 平方根   |
 
 ### 舍入方法
 
-| 方法    | 描述       |
-| ------- | ---------- |
-| ceil()  | 向上取整   |
-| floor() | 向下取整   |
-| rint()  | 向偶数舍入 |
-| round() | 四舍五入   |
+| 方法        | 描述       |
+| ----------- | ---------- |
+| `ceil()`  | 向上取整   |
+| `floor()` | 向下取整   |
+| `rint()`  | 向偶数舍入 |
+| `round()` | 四舍五入   |
 
 ### 最值与绝对值
 
-| 方法  | 描述   |
-| ----- | ------ |
-| max() | 类泛型 |
-| min() |        |
-| abs() |        |
+| 方法      | 描述   |
+| --------- | ------ |
+| `max()` | 类泛型 |
+| `min()` |        |
+| `abs()` |        |
 
 ### 随机数
 
-| 方法     | 描述                  |
-| -------- | --------------------- |
-| random() | 返回0.0~1.0随机double |
+| 方法         | 描述                  |
+| ------------ | --------------------- |
+| `random()` | 返回0.0~1.0随机double |
 
 ## 字符及字符操作
 
@@ -142,66 +142,66 @@ Java使用Unicode
 
 ### Character类中的方法
 
-| 方法                | 描述 |
-| ------------------- | ---- |
-| isDigit(ch)         |      |
-| isLetter(ch)        |      |
-| isLetterOrDigit(ch) |      |
-| isLowwerCase(ch)    |      |
-| isUpperCase(ch)     |      |
-| toLowerCase(ch)     |      |
-| toUpperCase(ch)     |      |
+| 方法                    | 描述 |
+| ----------------------- | ---- |
+| `isDigit(ch)`         |      |
+| `isLetter(ch)`        |      |
+| `isLetterOrDigit(ch)` |      |
+| `isLowwerCase(ch)`    |      |
+| `isUpperCase(ch)`     |      |
+| `toLowerCase(ch)`     |      |
+| `toUpperCase(ch)`     |      |
 
 ### String方法
 
-| 方法          | 描述                               |
-| ------------- | ---------------------------------- |
-| length()      | 返回字符数                         |
-| charAt(index) | 返回指定位置字符                   |
-| concat(s1)    | 将该字符与s1连接，返回一个新字符串 |
-| toUpperCase() | 全大写                             |
-| toLowerCase() | 全小写                             |
-| trim()        | 返回删掉两边空白字符的新字符串     |
+| 方法              | 描述                               |
+| ----------------- | ---------------------------------- |
+| `length()`      | 返回字符数                         |
+| `charAt(index)` | 返回指定位置字符                   |
+| `concat(s1)`    | 将该字符与s1连接，返回一个新字符串 |
+| `toUpperCase()` | 全大写                             |
+| `toLowerCase()` | 全小写                             |
+| `trim()`        | 返回删掉两边空白字符的新字符串     |
 
 ### 字符串比较
 
-| 方法                    | 描述                          |
-| ----------------------- | ----------------------------- |
-| equals(s1)              |                               |
-| equalsIgnoreCase(s1)    |                               |
-| compareTo(s1)           | 返回大于0、等于0或小于0的整数 |
-| compareToIgnoreCase(s1) |                               |
-| startsWith(prefix)      |                               |
-| endWith(suffix)         |                               |
-| contains(s1)            | 判断s1是否为子字符串          |
+| 方法                        | 描述                          |
+| --------------------------- | ----------------------------- |
+| `equals(s1)`              |                               |
+| `equalsIgnoreCase(s1)`    |                               |
+| `compareTo(s1)`           | 返回大于0、等于0或小于0的整数 |
+| `compareToIgnoreCase(s1)` |                               |
+| `startsWith(prefix)`      |                               |
+| `endWith(suffix)`         |                               |
+| `contains(s1)`            | 判断s1是否为子字符串          |
 
 ### 获得自字符串
 
-| 方法                            | 描述                     |
-| ------------------------------- | ------------------------ |
-| substring(beginIndex)           | 从begin开始到结束        |
-| substring(beginIndex, endIndex) | 到endIndex前一个字符结束 |
+| 方法                                | 描述                     |
+| ----------------------------------- | ------------------------ |
+| `substring(beginIndex)`           | 从begin开始到结束        |
+| `substring(beginIndex, endIndex)` | 到endIndex前一个字符结束 |
 
 ### 查找字符或子串
 
-| 方法                       | 描述                               |
-| -------------------------- | ---------------------------------- |
-| indexOf(ch)                | 返回低一个ch的下标（没有返回-1）   |
-| indexOf(ch, fromIndex)     | 在fromIndex之后找（包括fromIndex） |
-| indexOf(s)                 | 找字符串                           |
-| indexOf(s, fromIndex)      |                                    |
-| lastIndexOf(ch)            | 找最后一个                         |
-| lastIndexOf(ch, fromIndex) | 在fromIndex之前最后一个            |
-| lastIndexOf(s)             | 找字符串                           |
-| lastIndexOf(s, fromIndex)  |                                    |
+| 方法                           | 描述                               |
+| ------------------------------ | ---------------------------------- |
+| `indexOf(ch)`                | 返回低一个ch的下标（没有返回-1）   |
+| `indexOf(ch, fromIndex)`     | 在fromIndex之后找（包括fromIndex） |
+| `indexOf(s)`                 | 找字符串                           |
+| `indexOf(s, fromIndex)`      |                                    |
+| `lastIndexOf(ch)`            | 找最后一个                         |
+| `lastIndexOf(ch, fromIndex)` | 在fromIndex之前最后一个            |
+| `lastIndexOf(s)`             | 找字符串                           |
+| `lastIndexOf(s, fromIndex)`  |                                    |
 
 ### 字符与数值间转换
 
-| 方法                             | 描述        |
-| -------------------------------- | ----------- |
-| Integer.parseInt(intString)      | str->int    |
-| Double.parseDouble(doubleString) | str->double |
-| others + ""                      | others->str |
+| 方法                                 | 描述        |
+| ------------------------------------ | ----------- |
+| `Integer.parseInt(intString)`      | str->int    |
+| `Double.parseDouble(doubleString)` | str->double |
+| `others + ""`                      | others->str |
 
 ### 更多
 
@@ -518,7 +518,7 @@ try{
 
 尽量使用自带异常类
 
-继承`Exception`类创建自定义异常类。
+继承 `Exception`类创建自定义异常类。
 
 ## 文本I/O
 
@@ -600,3 +600,168 @@ try(/*声明和创建资源*/) {
 使用java.net.URL类的构造方法创建URL对象
 
 // 书上这里写的方法太老了，在Java20中被弃用了。
+
+# 第 11 章 抽象类和接口
+
+## 抽象类
+
+- 抽象方法不能包含在非抽象类中。
+  继承抽象类的子类不许实现所有抽象方法
+- 抽象类不能实例化，但可以定义构造方法（在子类中用）
+- 父类不抽象，子类可抽象
+
+## 接口
+
+### Comparable 接口
+
+通过implements Comparable接口，实现compareTo方法，从而实现比较。
+
+通过此接口，可以使用Arrays.sort(Object[])的。
+
+### Cloneable 接口
+
+标记接口，表示一个类拥有某些希望的特征。
+
+```java
+@override
+public Object clone() {
+  try {
+    return super.clone();
+  } catch (CloneNotSupportedException ex) {
+    return null;
+  }
+}
+```
+
+### 对比
+
+|        |           变量           |              构造方法              |                                                      方法                                                      |
+| :----: | :-----------------------: | :--------------------------------: | :------------------------------------------------------------------------------------------------------------: |
+| 抽象类 |          无限制          | hilihua,子类可以通过构造方法链调用 |                                                     无限制                                                     |
+|  接口  | 必须为public static final |                 无                 | 含public的抽象实例方法、public默认方法、public静态方法<br />（public static final与public abstract可以被忽略） |
+
+## 类的设计原则
+
+- 内聚性
+  类应该描述单一的实体，所有类操作应在逻辑上相互契合来支持统一的目的。
+- 一致性
+  遵循标准Java程序设计风格和命名规范。
+  提供具有一致性的公共无参构造方法。（组织创建对象：私有构造方法）
+- 封装性
+  private修饰符隐藏数据
+- 清晰性
+  类应该有一个易于解释和理解的清晰合约。
+  定义应该直观
+- 完整性
+  类应该通过属性和方法提供各种自定义方法
+- 实例和静态
+  总是使用类名引用静态变量和方法。
+  不要从构造方法中传入参数来初始化静态数据域，最好使用设置方法。
+- 继承和聚合
+  is-a AND has-a
+- 接口和抽象类
+  is-a 类建模
+  is-kind-of 接口建模
+
+# 第 17 章 二进制 I/O
+
+## 二进制I/O类
+
+### InputStream 和 OutputStream
+
+- InputStream
+  - `read(): int`	从输入流读取下一个字节数据。0~255int值。无可读时返回-1。
+  - `read(b: byte[]): int`	从输入流读取b.length个字节到数组b中，并返回实际读取的字节数
+  - `read(b: byte[], off: int, len: int)`	从输入流中读取数据，并将它们保存在b[off]到b[off + len - 1]中。返回实际读取的字节数。到流的最后返回-1。
+  - `close(): void`	关闭输入流，释放其占用的任何系统资源。
+  - `skip(n: long): long`	从输入中跳过并且丢弃n字节数据，返回实际跳过字节数。
+- OutputStream
+  - `write(int b): int`	将指定的字节写入到该输入流。参数b是一个int值，将(byte)b写入
+  - `write(b: byte[]): void`	将数组B中所有字节写入输入流中。
+  - `write(b: byte[], off: int, len: int): void`	将b[off]到b[off + len - 1]写入
+  - `close(): void`	关闭输出流，释放系统资源
+  - `flush(): void`	清除输出流，强制写出任何缓冲的输出字节。
+
+**注意：二进制I/O类的所有方法都声明为java.io.IOException及其子类。**
+
+### FileInputStream 和 FileOutputStream
+
+- FileInputStream
+  - `FileInputStream(file: File)`
+  - `FileInputStream(filename: String)`
+- FileOutputStream
+  - `FileOutputStream(file: File)`
+  - `FileOutputStream(filename: String)`
+  - `FileOutputStream(file: File, append: boolean)`	如果，append为true，则追加数据到已存在的文件
+  - `FileOutputStream(filename: String, append: boolean)`
+
+几乎所有I/O类中的方法都会抛出java.io.IOException。因此必须声明异常或使用try-catch。
+
+使用try-with-resources声明和创建输入输出流，从而自动关闭。（实现AutoClosable接口可用）
+
+### FilterInputStream 和 DataOutputStream
+
+过滤器数据流是为某种目的而过滤字节的数据流。
+
+可以处理基本类型的数据流。
+
+### DataInputStream 和 DataOutputStream
+
+构造方法：使用Input/OutputStream构造
+
+DataInputStream类继承自FilterInputStream类，并实现DataInput接口。
+
+DataOutputStream类继承自FilterOutputStream类，并实现DataOutput接口。
+
+- DataInput
+  - `read[类型](): [类型]`	从输入中读取一个[类型]值。类型可为boolean、byte、char、float、double、int、long、short
+  - `readLine(): String`	读一行
+  - `readUTF(): String`	以UTF格式读取一个字符串
+- DataOutput
+  - `write[类型](): void`
+  - `writeUTF(String s): void`
+  - `writeBytes(s: String): void`	向输出流中写字符串中字符的低位字节
+  - `writeChars(s: String): void`	向输出流中依次写字符串s中的每个字符，每个字符2个字节。
+
+如果一个字符串包含非ASCII码的字符，则需要writeChars()写。writeUTF()使用UTF编码写字符串。
+
+读到末尾：EOFException
+
+### BufferedInputStream 和 BufferedOutputStream
+
+没有新方法，但有缓冲区
+
+默认缓冲区512个字节，可以在构造时加一个int指定缓冲区大小。(由Out/InputStream构造)
+
+## 对象I/O
+
+ObjectInputStream继承自InputStream，实现了ObjectInput和ObjectStreamConstants。ObjectInput是DataInput的子接口。
+
+ObjectOutputStream同理。
+
+增加了 `readObject(): Object`和 `writeObject(): void`方法
+
+读取时应使用Java安全类型转换得到所需类型。
+
+readObject()可能抛出java.lang.ClassNotFoundException，这是必检异常。
+
+### Serializable 接口
+
+表示“可序列化的”标记接口。
+
+类使用transient修饰类中不可序列化的实例数据域，则会将之忽略。
+
+## 随机访问文件
+
+RandomAccessFile类
+
+实现了DataInput和DataOutput接口
+
+- 构造方法：File或String（路径）为第一个参数，mode（Sring）为第二个参数
+  mode：r（只读）、rw（读写）
+- 特殊方法：
+  - getFilePointer(): long	返回从文件开始位置到下一个read或write位置的偏移量（以字节为单位）。
+  - length(): long	返回文件长度
+  - seek(pos: long): long	设置偏移量
+  - setLength(newLongth: long)	为文件设置新长度
+  - skipBytes(int n): n	跳过n个字节的输入
