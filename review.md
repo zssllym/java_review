@@ -760,8 +760,8 @@ RandomAccessFile类
 - 构造方法：File或String（路径）为第一个参数，mode（Sring）为第二个参数
   mode：r（只读）、rw（读写）
 - 特殊方法：
-  - getFilePointer(): long	返回从文件开始位置到下一个read或write位置的偏移量（以字节为单位）。
-  - length(): long	返回文件长度
-  - seek(pos: long): long	设置偏移量
-  - setLength(newLongth: long)	为文件设置新长度
-  - skipBytes(int n): n	跳过n个字节的输入
+  - `getFilePointer(): long`	返回从文件开始位置到下一个read或write位置的偏移量（以字节为单位）。
+  - `length(): long`	返回文件长度
+  - `seek(pos: long): long`	设置偏移量
+  - `setLength(newLongth: long)`	为文件设置新长度
+  - `skipBytes(int n): n`	跳过n个字节的输入
